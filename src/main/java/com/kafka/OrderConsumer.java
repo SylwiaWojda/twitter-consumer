@@ -7,6 +7,8 @@ import org.apache.kafka.clients.producer.KafkaProducer;
 import org.apache.kafka.clients.producer.ProducerRecord;
 
 import java.time.Duration;
+import java.util.Collection;
+import java.util.Collections;
 import java.util.Properties;
 
 public class OrderConsumer {
@@ -19,15 +21,17 @@ public class OrderConsumer {
 
 
         KafkaConsumer<String, Integer> consumer = new KafkaConsumer<String, Integer>(props);
+        consumer.subscribe(Collections.singletonList("OrderTopic"));
 
         ConsumerRecords<String, Integer> orders = consumer.poll(Duration.ofSeconds(20));
-        try (ConsumerRecord<String, Integer> order : orders){
+        for (ConsumerRecord<String, Integer> order : orders){
             System.out.println("Product name " + order.key());
+            System.out.println("Quantity " + order.value());
 
-        } catch (Exception e) {
-            e.printStackTrace();
-        } finally {
-            consumer.close();
+//        } catch (Exception e) {
+//            e.printStackTrace();
+//        } finally {
+//            consumer.close();
         }
     }
 }
