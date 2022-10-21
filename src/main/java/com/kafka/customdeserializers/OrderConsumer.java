@@ -17,7 +17,7 @@ public class OrderConsumer {
 //        props.setProperty("value.deserializer", "org.apache.kafka.common.serialization.IntegerDeserializer");
         props.setProperty("key.deserializer", StringDeserializer.class.getName());
         props.setProperty("value.deserializer", OrderDeserializer.class.getName());
-        props.setProperty("group.id", "OrderGroup");
+        props.setProperty("group.id", "OrderCSGroup");
 
 
         KafkaConsumer<String, Order> consumer = new KafkaConsumer<>(props);
