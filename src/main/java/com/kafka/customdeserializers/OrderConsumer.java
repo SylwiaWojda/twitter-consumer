@@ -1,5 +1,6 @@
 package com.kafka.customdeserializers;
 
+import org.apache.kafka.clients.consumer.ConsumerConfig;
 import org.apache.kafka.clients.consumer.ConsumerRecord;
 import org.apache.kafka.clients.consumer.ConsumerRecords;
 import org.apache.kafka.clients.consumer.KafkaConsumer;
@@ -18,22 +19,25 @@ public class OrderConsumer {
         props.setProperty("key.deserializer", StringDeserializer.class.getName());
         props.setProperty("value.deserializer", OrderDeserializer.class.getName());
         props.setProperty("group.id", "OrderCSGroup");
+        props.put(ConsumerConfig.AUTO_OFFSET_RESET_CONFIG, "earliest");
 
 
         KafkaConsumer<String, Order> consumer = new KafkaConsumer<>(props);
         consumer.subscribe(Collections.singletonList("OrderCSTopic"));
 
-        ConsumerRecords<String, Order> records = consumer.poll(Duration.ofSeconds(20));
-        for (ConsumerRecord<String, Order> record : records) {
+        while(true) {
+            ConsumerRecords<String, Order> records = consumer.poll(Duration.ofSeconds(20));
+            for (ConsumerRecord<String, Order> record : records) {
 //            System.out.println("Product name " + record.key());
 //            System.out.println("Quantity " + record.value());
-            String consumerName = record.key();
-            Order order = record.value();
-            System.out.println("Customer name: " + order.getCustomerName());
-            System.out.println("Product: " + order.getProduct());
-            System.out.println("Quantity: " + order.getQuantity());
+                String consumerName = record.key();
+                Order order = record.value();
+                System.out.println("Customer name: " + order.getCustomerName());
+                System.out.println("Product: " + order.getProduct());
+                System.out.println("Quantity: " + order.getQuantity());
+            }
         }
-        consumer.close();
+//        consumer.close();
 
 //        } catch (Exception e) {
 //            e.printStackTrace();
