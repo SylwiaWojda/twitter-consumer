@@ -16,8 +16,6 @@ public class TweetConsumer {
     public static void main(String[] args) throws InterruptedException {
         Properties props = new Properties();
         props.setProperty("bootstrap.servers", "localhost:9092");
-//        props.setProperty("key.deserializer", "org.apache.kafka.common.serialization.StringDeserializer");
-//        props.setProperty("value.deserializer", "org.apache.kafka.common.serialization.IntegerDeserializer");
         props.setProperty("key.deserializer", StringDeserializer.class.getName());
         props.setProperty("value.deserializer", TweetDeserializer.class.getName());
         props.setProperty("group.id", "TweetGroup");
@@ -36,8 +34,6 @@ public class TweetConsumer {
                 Tweet[] tweets = record.value();
 //                System.out.println("Tweet: " + tweets[1].getRawTweets());
 //                System.out.println("Amount: " + tweets[1].getAmount());
-//                System.out.println("Product: " + order.getProduct());
-//                System.out.println("Quantity: " + order.getQuantity());
             }
             sleep(100000);
         }
