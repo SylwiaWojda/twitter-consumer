@@ -34,7 +34,8 @@ public class TweetConsumer {
 //            System.out.println("Quantity " + record.value());
                 String consumerName = record.key();
                 Tweet[] tweets = record.value();
-                System.out.println("Tweet: " + tweets[1].getRawTweets());
+//                System.out.println("Tweet: " + tweets[1].getRawTweets());
+//                System.out.println("Amount: " + tweets[1].getAmount());
 //                System.out.println("Product: " + order.getProduct());
 //                System.out.println("Quantity: " + order.getQuantity());
             }
