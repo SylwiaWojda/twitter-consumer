@@ -1,6 +1,7 @@
 package com.kafka.customdeserializers;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
+import com.kafka.spring.Tweet;
 import org.apache.kafka.common.serialization.Deserializer;
 
 import java.io.IOException;

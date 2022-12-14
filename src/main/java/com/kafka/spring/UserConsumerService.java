@@ -7,7 +7,11 @@ import org.springframework.stereotype.Service;
 public class UserConsumerService {
 
     @KafkaListener(topics = { "user-topic" })
-    public void consumerUserData(User user) {
-        System.out.println("Users Age Is: " + user.getAge()+" Fav Genre "+user.getFavGenre());
+    public void consumerUserData(Tweet[] tweets) {
+        for(Tweet tweet: tweets) {
+            System.out.println("Tweet " + tweet.getRawTweets());
+        }
+        //
+        //System.out.println("Users Age Is: " + user.getAge()+" Fav Genre "+user.getFavGenre());
     }
 }
