@@ -34,8 +34,8 @@ public class TweetController {
     public List getTweetsBySearchWord(@PathVariable String searchWord) {
         List<Tweet> tweetsFromDb = tweetRepository.findByRawContaining(searchWord);
 
-        System.out.println("/searchBy/{searchWord}" + tweetsFromDb.get(0).getRaw());
-
+        //System.out.println("/searchBy/{searchWord}" + tweetsFromDb.get(0).getRaw());
+        //todo: save them in different table
         return tweetsFromDb;
     }
 
