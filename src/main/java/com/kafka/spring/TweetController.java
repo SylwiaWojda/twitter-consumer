@@ -33,6 +33,12 @@ public class TweetController {
     @GetMapping("/b/{searchWord}")
     public List getTweetsBySearchWord(@PathVariable String searchWord) {
         List<Tweet> tweetsFromDb = tweetRepository.findByRawContaining(searchWord);
+        //todo: 1. zrobic nowe repository
+        //2. zrobic nowa tabele np filterTweets
+        //3.zapisac do nowego repo
+//        for(Tweet tweet : tweetsFromDb) {
+//            tweetRepository.save(tweet);
+//        }
 
         //System.out.println("/searchBy/{searchWord}" + tweetsFromDb.get(0).getRaw());
         //todo: save them in different table
