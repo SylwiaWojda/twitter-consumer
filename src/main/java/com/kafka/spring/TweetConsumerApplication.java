@@ -10,10 +10,10 @@ import org.springframework.data.jpa.repository.config.EnableJpaRepositories;
 @EnableJpaRepositories
 @EntityScan
 @ComponentScan("com.kafka.spring")
-public class UserconsumerApplication {
+public class TweetConsumerApplication {
 
     public static void main(String[] args) {
-        SpringApplication.run(UserconsumerApplication.class, args);
+        SpringApplication.run(TweetConsumerApplication.class, args);
     }
 
 }

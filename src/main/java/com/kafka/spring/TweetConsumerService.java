@@ -10,10 +10,10 @@ import java.io.InputStream;
 import java.util.concurrent.TimeUnit;
 
 @Service
-public class UserConsumerService {
+public class TweetConsumerService {
 
     @KafkaListener(topics = { "tweet-topic" })
-    public void consumerUserData(Tweet[] tweets) {
+    public void consumerTwitterData(Tweet[] tweets) {
         for(Tweet tweet: tweets) {
             System.out.println("Tweet " + tweet.getRaw());
         }
@@ -28,7 +28,7 @@ public class UserConsumerService {
 
             InputStream inputStream = process.getInputStream();
             try {
-                process.waitFor(1, TimeUnit.SECONDS);
+                process.waitFor(10, TimeUnit.SECONDS);
             } catch (InterruptedException e) {
                 throw new RuntimeException(e);
             }
@@ -38,7 +38,6 @@ public class UserConsumerService {
         } catch (IOException e) {
             throw new RuntimeException(e);
         }
-        //
-        //System.out.println("Users Age Is: " + user.getAge()+" Fav Genre "+user.getFavGenre());
+
     }
 }
