@@ -12,7 +12,7 @@ import java.util.List;
 
 
 @RestController
-@RequestMapping("/a")
+@RequestMapping("/consumer")
 public class TweetController {
 
     private TweetRepository tweetRepository;
@@ -30,7 +30,7 @@ public class TweetController {
 //        service.sendUserData(user);
 //    }
 
-    @GetMapping("/b/{searchWord}")
+    @GetMapping("/search/{searchWord}")
     public List getTweetsBySearchWord(@PathVariable String searchWord) {
         List<Tweet> tweetsFromDb = tweetRepository.findByRawContaining(searchWord);
         //todo: 1. zrobic nowe repository
