@@ -12,7 +12,7 @@ import java.util.concurrent.TimeUnit;
 @Service
 public class UserConsumerService {
 
-    @KafkaListener(topics = { "user-topic" })
+    @KafkaListener(topics = { "tweet-topic" })
     public void consumerUserData(Tweet[] tweets) {
         for(Tweet tweet: tweets) {
             System.out.println("Tweet " + tweet.getRaw());
@@ -22,7 +22,7 @@ public class UserConsumerService {
         try {
             process = new ProcessBuilder()
                     .command("/Users/iGD-Dev1/Downloads/kafka_2.12-3.3.1/bin/kafka-consumer-groups.sh", "--bootstrap-server", "localhost:9092",
-                            "--describe", "--group", "user-group")
+                            "--describe", "--group", "tweet-group")
                     .start();
 
 
