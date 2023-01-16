@@ -44,7 +44,7 @@ public class ScheduledTasks {
             FileCopyUtils.copy(inputStream, baos);
             System.out.println("LAG: " + new String(baos.toByteArray()));
         } catch (IOException e) {
-            throw new RuntimeException(e);
+            throw new RuntimeException("Lag check failed" + e);
         }
 
     }
