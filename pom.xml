@@ -6,13 +6,13 @@
         <groupId>org.springframework.boot</groupId>
         <artifactId>spring-boot-starter-parent</artifactId>
         <version>2.5.2</version>
-        <relativePath/> <!-- lookup parent from repository -->
+        <relativePath/>
     </parent>
-    <groupId>com.bharath.kafka</groupId>
-    <artifactId>userconsumer</artifactId>
+    <groupId>com.kafka</groupId>
+    <artifactId>tweetconsumer</artifactId>
     <version>0.0.1-SNAPSHOT</version>
-    <name>userconsumer</name>
-    <description>user consumer</description>
+    <name>tweetconsumer</name>
+    <description>tweet consumer</description>
     <properties>
         <java.version>11</java.version>
     </properties>
@@ -36,15 +36,6 @@
             <artifactId>spring-kafka-test</artifactId>
             <scope>test</scope>
         </dependency>
-
-
-
-
-
-
-
-
-
 
         <dependency>
             <groupId>mysql</groupId>
