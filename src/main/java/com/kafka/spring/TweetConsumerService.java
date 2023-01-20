@@ -17,7 +17,7 @@ public class TweetConsumerService {
     public void consumerTwitterData(Tweet[] tweets) {
         for(Tweet tweet: tweets) {
 
-            ConsumedTweet consumedTweet = new ConsumedTweet();
+            Consumed consumedTweet = new Consumed();
             consumedTweet.setRaw(tweet.getRaw());
 //            consumedTweet.setRawTweets("0");
             consumedTweet.setAmount(tweet.getAmount());

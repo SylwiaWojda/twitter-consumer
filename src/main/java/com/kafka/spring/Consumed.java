@@ -6,8 +6,8 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 
-@Entity(name = "Tweet_details_consumed")
-public class ConsumedTweet {
+@Entity(name = "consumed")
+public class Consumed {
     @Id
     @GeneratedValue
     private Integer id;
@@ -43,13 +43,13 @@ public class ConsumedTweet {
         this.raw = raw;
     }
 
-    public ConsumedTweet(String raw, String amount) {
+    public Consumed(String raw, String amount) {
         this.raw = raw;
         this.amount = amount;
     }
 
 
-    public ConsumedTweet() {
+    public Consumed() {
     }
 
 }

@@ -7,6 +7,6 @@ import org.springframework.stereotype.Repository;
 import java.util.List;
 
 @Repository
-public interface ConsumedTweetRepository extends JpaRepository<ConsumedTweet, Integer> {
+public interface ConsumedTweetRepository extends JpaRepository<Consumed, Integer> {
 
 }
