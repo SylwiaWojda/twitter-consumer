@@ -11,12 +11,23 @@ public class Consumed {
     @Id
     @GeneratedValue
     private Integer id;
-
+    @Column(length = 65555000)
+    private String rawTweets;
 
     @Column(length = 65555000)
     private String raw;
 
     private String amount;
+
+    private Boolean isPublish;
+
+    public Boolean getPublish() {
+        return isPublish;
+    }
+
+    public void setPublish(Boolean publish) {
+        isPublish = publish;
+    }
 
     public Integer getId() {
         return id;
@@ -26,6 +37,13 @@ public class Consumed {
         this.id = id;
     }
 
+    public String getRawTweets() {
+        return rawTweets;
+    }
+
+    public void setRawTweets(String rawTweets) {
+        this.rawTweets = rawTweets;
+    }
 
     public String getAmount() {
         return amount;
@@ -43,13 +61,27 @@ public class Consumed {
         this.raw = raw;
     }
 
-    public Consumed(String raw, String amount) {
+    public Consumed(Integer id, String rawTweets, String raw, String amount) {
+        this.id = id;
+        this.rawTweets = rawTweets;
         this.raw = raw;
         this.amount = amount;
     }
 
+    public Consumed(Integer id, String rawTweets, String amount) {
+        this.id = id;
+        this.rawTweets = rawTweets;
+        this.amount = amount;
+    }
 
     public Consumed() {
+    }
+
+    public Consumed(Integer id, String rawTweets, String amount, Boolean isPublish) {
+        this.id = id;
+        this.rawTweets = rawTweets;
+        this.amount = amount;
+        this.isPublish = isPublish;
     }
 
 }
