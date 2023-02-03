@@ -3,6 +3,8 @@ package com.kafka.spring;
 import org.springframework.kafka.annotation.KafkaListener;
 import org.springframework.stereotype.Service;
 
+import java.util.List;
+
 
 @Service
 public class TweetConsumerService {
@@ -14,13 +16,15 @@ public class TweetConsumerService {
     }
 
     @KafkaListener(topics = { "tweet-topic" })
-    public void consumerTwitterData(Tweet[] tweets) {
+    public void consumerTwitterData(List<Tweet> tweets) {
+        System.out.println("Amount of consumed tweets: " + tweets.size());
         for(Tweet tweet: tweets) {
 
             Consumed consumedTweet = new Consumed();
             consumedTweet.setRaw(tweet.getRaw());
 //            consumedTweet.setRawTweets("0");
             consumedTweet.setAmount(tweet.getAmount());
+            consumedTweet.setPublish(tweet.getPublish());
             tweetConsumerRepository.save(consumedTweet);
 
 //            tweetConsumerRepository.save(new ConsumedTweet(
